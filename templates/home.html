@@ -1,0 +1,20 @@
+{% extends "_base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+HOME
+{% endblock %}
+
+{% block content %}
+    <div class="card">
+  <div class="card-body">
+    <h1>welcome to home</h1>
+      {% if user.is_authenticated %}
+          <h3>wellcom {{ user.username }}</h3> | <a href="{% url 'logout' %}">log out</a>
+            {% else %}
+               <a href="{% url 'login' %}">log In</a> | <a href="{% url 'signup' %}">sign up</a>
+      
+      {% endif %} 
+  </div>
+</div>
+{% endblock %}
