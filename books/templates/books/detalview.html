@@ -10,4 +10,5 @@
     <p>{{ books.description }}</p>
     <h4>price {{ books.price }}$</h4>
     <a href="{% url 'book_list' %}">لیست همه کتابها</a>
+    <a href="{% url 'book_delete'  books.id%}"><button type="button" class="btn btn-danger">حذف کتاب</button></a>
 {% endblock %}
