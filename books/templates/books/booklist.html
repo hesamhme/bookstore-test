@@ -4,6 +4,7 @@
 {% endblock %}
 
 {% block content %}
+    <a href="{% url 'book_Update' %}">اضافه کردن کتاب جدید</a>
     {% for book in books %}
         <a href="{% url 'book_detail' book.id %}">  <h1>{{ book.title }}</h1>  </a>
         <H3>{{ book.author }}</H3>
