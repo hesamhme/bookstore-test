@@ -13,6 +13,7 @@ class Books(models.Model):
     language = models.CharField(max_length=50, choices=STATUS_CHOICE)
     description = models.TextField()
     price = models.DecimalField(max_digits=5, decimal_places=2)
+    cover = models.ImageField(upload_to='covers/', blank=True)
 
     def __str__(self):
         return f"{self.title}  : {self.author}  : {self.price}"
