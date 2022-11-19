@@ -4,15 +4,28 @@
 {% endblock %}
 
 {% block content %}
-    <a href="{% url 'book_Update' %}">اضافه کردن کتاب جدید</a>
-    {% for book in books %}
-        <a href="{% url 'book_detail' book.id %}">  <h1>{{ book.title }}</h1>  </a>
-        <H3>{{ book.author }}</H3>
-        <h5>{{ book.price }}</h5>
-        <a href="{% url 'book_detail' book.id %}"><button type="button" class="btn btn-dark" >جزییات</button></a>
-        <br>
-        <h3>________________________________________________</h3>
-    
-    {% endfor %}
-    
+    <div class="container mt-4">
+    <div class="row flex-row-reverse justify-content-md-center">
+        {% for book in books %}
+             <div class="card m-2" style="max-width: 45%">
+            <div class="row g-0 h-100" dir="rtl">
+                <div class="col-md-4">
+                    <img src="https://newcdn.fidibo.com/images/books/69249_94233_normal.jpg"
+                         class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8 h-100">
+                    <div class="d-flex flex-column justify-content-between h-100">
+                        <div class="card-body">
+                            <a href="{% url 'book_detail' book.id %}"><h3 class="card-title"><strong>{{ book.title}}</strong></h3></a>
+                            <p class="card-text pt-3">{{ book.description | truncatewords:30 }}</p>
+                            <p class="text-muted">نویسنده:{{book.author}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+
 {% endblock %}
