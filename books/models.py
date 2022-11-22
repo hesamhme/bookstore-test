@@ -1,7 +1,6 @@
 from django.db import models
 from django.urls import reverse
-
-
+from django.contrib.auth import get_user_model
 class Books(models.Model):
     STATUS_CHOICE = (
         ('fa', 'farsi'),
@@ -20,4 +19,14 @@ class Books(models.Model):
 
     def get_absolute_url(self):
         return reverse('book_detail', args=[self.id])
+
+
+class Comment(models.Model):
+    book = models.ForeignKey(Books, on_delete=models.CASCADE, related_name='comments')
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    text = models.TextField()
+
+
+
+
 
