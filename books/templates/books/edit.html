@@ -10,7 +10,6 @@
             <div class="col-9">
                 <div class="card shadow my-3">
                     <h5 class="card-header bg-success text-light px-5">فرم</h5>
-                    {% if user.is_authenticated %}
                     <div class="px-5 pt-3 pb-5">
                         <form method="POST" enctype="multipart/form-data">
                             {% csrf_token %}
@@ -37,23 +36,4 @@
         </div>
     </div>
 
-    {% else %}
-    <div class="px-5 pt-3 pb-5">
-        <a href="{% url 'login' %}">ورود</a>
-    </div>
-
-    <div class="col-3">
-
-        <div class="card my-3 shadow">
-            <h5 class="card-header bg-warning text-light">راهنما</h5>
-            <div class="card-body">
-                <p class="card-text">
-                   برای ویرایش کتاب لطفا وارد شوید
-                </p>
-            </div>
-        </div>
-
-    </div>
-
-    {% endif %}
 {% endblock %}

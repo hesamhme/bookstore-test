@@ -9,12 +9,13 @@ class Books(models.Model):
         ('en', 'english'),
         ('etc', 'other')
     )
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
     author = models.CharField(max_length=50)
     language = models.CharField(max_length=50, choices=STATUS_CHOICE)
     description = models.TextField()
     price = models.DecimalField(max_digits=5, decimal_places=2)
-    cover = models.ImageField(upload_to='covers/', blank=True)
+    cover = models.ImageField(upload_to='covers/', blank=True, null=True)
 
     def __str__(self):
         return f"{self.title}  : {self.author}  : {self.price}"
